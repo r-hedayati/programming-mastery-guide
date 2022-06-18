@@ -29,9 +29,9 @@ These elements extend the basic syntax by adding additional features. Not all Ma
 | Strikethrough                              | ~~The world is flat.~~                                                                                     |
 | Task List                                  | - [x] Write the press release - [ ] Update the website - [ ] Contact the media                             |
 | Emoji (see also Copying and Pasting Emoji from [emojipedia](https://emojipedia.org/)) | That is so funny! :joy:                                                                                    |
-| Highlight                                  | I need to highlight these ==very important words==.                                                        |
-| Subscript                                  | H~2~O                                                                                                      |
-| Superscript                                | X^2^                                                                                                       |
+| Highlight                                  | I need to highlight these <mark>very important words</mark>.                                                        |
+| Subscript                                  | H<sub>2</sub>O                                                                                                     |
+| Superscript                                | X<sup>2</sup>                                                                                                      |
 
 ---
 
@@ -90,8 +90,10 @@ These elements extend the basic syntax by adding additional features. Not all Ma
    >[Got to Sample Heading](#custom-id)
 
 5.  Definition List
-    >First Term
-      : This is the definition of the first term.
+    ><dl>
+    <dt><strong>Lower cost</strong></dt>
+    <dd>The new version of this product costs significantly less than the previous one!</dd>
+    </dl>
 
 6.  Strikethorugh
     >~~The world is flat.~~ We now know that the world is round.
@@ -100,10 +102,14 @@ These elements extend the basic syntax by adding additional features. Not all Ma
     >- [ ] Update the website
     >- [x] Contact the media
 8.  Emoji
-    > :D 🎹
+    > :joy: 🎹
 9.  Highlight
-    >I need to highlight these ==very important words==.
+    >I need to highlight these <mark>very important words</mark>.
 10. Subscript
-    >H~2~O
+    >H<sub>2</sub>O
 11. Superscript
-    >X^2^
+    >X<sup>2</sup> 
+
+
+
+   
