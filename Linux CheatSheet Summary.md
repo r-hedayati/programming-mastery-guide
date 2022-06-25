@@ -1,3 +1,4 @@
+## Commands
 |                                                 **Command**                                                 	|                                                                                  **Description**                                                                                  	|
 |:-----------------------------------------------------------------------------------------------------------:	|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:	|
 | command name -options < input >                                                                               	| command structure                                                                                                                                                                 	|
@@ -28,6 +29,7 @@
 | find <starting directory> <options> <search term><br>more options in manual                                 	| search a file through directories                                                                                                                                                 	|
 | xargs<br>date \| xargs echo<br>ls \| xargs rm                                                               	| using in piping for commands that get command argument <br>the output will be the date<br>the outputs of ls command will be deleted                                               	|
 | alias shortName="your custom command"<br>alias ll = "ls - l"<br>alias ll = "ls -l" --> in bash file         	| creating a custom command - it can be made permanently<br>temporary ll command is created<br>permanently ll command is created                                                    	|
+  | test | test |
 
 ## Wildcars
 
