@@ -27,9 +27,9 @@
 | tail <text file name><br>tail -n 5 <file name><br>head -n 7 <file name> \| tail -n 3                        	| print the last part of a file<br>print the last 5 lines of a file<br>print lines 5 6 7                                                                                            	|
 | sort <file name><br>sort -r <file name><br>sort -n <file name><br>sort -u <file name><br>ls -l \| sort -k 2 	| sort file alphabetically<br>sort file alphabetically in reverse<br>sort file numerically<br>sort and get unique results only<br>list all files in tabular and sort the second col 	|
 | find <starting directory> <options> <search term><br>more options in manual                                 	| search a file through directories                                                                                                                                                 	|
-    | fd  | better version of find command |
 | xargs<br>date \| xargs echo<br>ls \| xargs rm                                                               	| using in piping for commands that get command argument <br>the output will be the date<br>the outputs of ls command will be deleted                                               	|
 | alias shortName="your custom command"<br>alias ll = "ls - l"<br>alias ll = "ls -l" --> in bash file         	| creating a custom command - it can be made permanently<br>temporary ll command is created<br>permanently ll command is created                                                    	|
+      | fd  | better version of find command |
 
 
 ## Wildcars
