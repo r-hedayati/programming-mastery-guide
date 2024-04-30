@@ -1,8 +1,16 @@
 ## Definitions
-- **Git directory:** it contains the history of all the files and changes.
-- **Working directory (tree):** it contains the current state of the project, including any changes that we've made. 
-- Staging area: it contains the changes that have been marked to be included in the next commit.
-- **Commit:**
+`GIT - distributed-is-the-new-centralized `
+- The major difference between Git and any other VCS (Subversion and friends included) is the way Git thinks about its data (Git take snapshots not differences). 
+- Git has three main states that your files can reside in: modified, staged, and committed: 
+  - **Working directory (tree):** it contains the current state of the project, including any changes that we've made. 
+  - **Staging area**: it contains the changes that have been marked to be included in the next commit.
+  - **Git directory:** it contains the history of all the files and changes (in `.git` directory (local directory)).
+  
+- The basic Git workflow goes something like this:
+  1) You `modify` files in your working tree.
+  2) You selectively `stage` just those changes you want to be part of your next commit, which adds only those changes to the staging area.
+  3) You do a `commit`, which takes the files as they are in the staging area and stores that snapshot permanently to your Git directory.
+- **Commit:** it captures a snapshot of the project's currently staged changes.
 - **Clone:**
 - **Push:**
 - **Pull:**
@@ -13,7 +21,7 @@
 ## step-by-step procedure
 1. Initializing a new git repository for tracking files: ` git init `
 2. Adding files to **staging area**: ` git add <file/directory name>`
-   - Adding all changes from working directory to staging area: ` git add *`
+   - Adding all changes from **working directory** to **staging area**: ` git add *`
 3. Adding files to local git repository: ` git commit `
     - ` git commit -m 'writing your message' `
     - Skip staging area: ` git commit -a `
@@ -25,10 +33,12 @@
 > ` git config --global user.email <email adress>`
 > 
 We have multiple ` gitconfig ` files, two of which are more usable: 
-- ` --global ` : all of the repositories settings
+- ` --global ` : all the repositories settings
 - ` --local ` : the current repository setting
 
 ## Other git commands
+- `git config --global --edit`: if you want to change any `git config` settings (you can see different level of config by changing `--global` to `--local` or `system`)
+- `git config --list`: checking your current git seetings
 - ` git clone <URL>`: target an existing repository and create a clone, or copy of the target repository. A repository can be cloned in the following two ways:
   - HTTPS: using username and password
   - SSH: using SSH key pair and store public key in our profile
