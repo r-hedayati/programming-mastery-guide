@@ -10,6 +10,9 @@
   1) You `modify` files in your working tree.
   2) You selectively `stage` just those changes you want to be part of your next commit, which adds only those changes to the staging area.
   3) You do a `commit`, which takes the files as they are in the staging area and stores that snapshot permanently to your Git directory.
+- Remember that each file in your **working directory** can be in one of two states: **tracked** or **untracked**. 
+  - **Tracked** files are files that were in the last snapshot, as well as any newly staged files; they can be **unmodified**, **modified**, or **staged**. In short, tracked files are files that Git knows about.
+  - **Untracked** files are any files in your working directory that were not in your last snapshot and are not in your staging area. In short, everything else.
 - **Commit:** it captures a snapshot of the project's currently staged changes.
 - **Clone:**
 - **Push:**
@@ -18,17 +21,17 @@
 - **Forking**: a way of creating a copy of the given repo so that it belongs to our user. Our user will be able to push changes to the forked copy, even when we can't push changes to the other repo.
 - **Pull request**: after changing and modifying the selected project, we can pull request to notify the developers of that project to apply our changes
 
-## step-by-step procedure
-1. Initializing a new git repository for tracking files: ` git init `
-2. Adding files to **staging area**: ` git add <file/directory name>`
-   - Adding all changes from **working directory** to **staging area**: ` git add *`
-3. Adding files to local git repository: ` git commit `
-    - ` git commit -m 'writing your message' `
-    - Skip staging area: ` git commit -a `
-    - All in once (for small changes): ` git commit -a -m ''writing your message' `
-4. Sending last changes to the remote git repository (GitHub/GitLab): ` git push `
+## Step-by-Step Procedure
+1.  ` git init `: initializing a new git repository for tracking files
+2. ` git add <file/directory name>`: adding files to **staging area**
+   -  ` git add .`: adding all changes from **working directory** to **staging area** (add precisely this content to the next commit):
+3. ` git commit `: adding files to local git repository: 
+    - ` git commit -m 'writing your message' `: writing an inline message for the current commit
+    - ` git commit -a `: skip staging area
+    -  ` git commit -a -m ''writing your message' `: all in once (for small changes)
+4. ` git push `: sending last changes to the remote git repository (GitHub/GitLab): 
 
-**git** should know who **commit** a file. It can be recognizable by using ` gitconfig ` command with one **name** and an **email**. 
+**Git** should know who **commit** a file. It can be recognizable by using ` gitconfig ` command with one **name** and an **email**. 
 > ` git config --global user.name <name>`  
 > ` git config --global user.email <email adress>`
 > 
@@ -38,7 +41,7 @@ We have multiple ` gitconfig ` files, two of which are more usable:
 
 ## Other git commands
 - `git config --global --edit`: if you want to change any `git config` settings (you can see different level of config by changing `--global` to `--local` or `system`)
-- `git config --list`: checking your current git seetings
+- `git config --list`: checking your current git settings
 - ` git clone <URL>`: target an existing repository and create a clone, or copy of the target repository. A repository can be cloned in the following two ways:
   - HTTPS: using username and password
   - SSH: using SSH key pair and store public key in our profile
@@ -56,10 +59,34 @@ We have multiple ` gitconfig ` files, two of which are more usable:
   - ` git log -p `: showing the details of each commit
   - ` git log --stat `: showing some statistic of each commit
 - ` git show <git id> `: showing the specific commit using its ID 
+- `git diff`: showing the differences between the working directory and .git directory.
+  - `git diff --staged` or `git diff --cached`: showing the differences between the working directory and staging are.
+  - `git diff <filename/directory>`: if you want the differences of a specific file/directory.
+  - `git difftool`: it opens up the diff tool that you have set up (like vscode)
 - ` git reset `: remove from staging area
   - ` git reset -p `: using for specific changes
 - ` git mv <filename old> <filename new> `: moving/renaming the files in git
 - ` git rm <filename>`: removing a specific file 
+- - `.gitignore ` file: Often, you’ll have a class of files that you don’t want Git to automatically add or even show you as being untracked. Here is an example of this file, more examples can be found [here](https://github.com/github/gitignore).
+  ```
+  # ignore all .a files
+  *.a
+
+  # but do track lib.a, even though you're ignoring .a files above
+  !lib.a
+
+  # only ignore the TODO file in the current directory, not subdir/TODO
+  /TODO
+
+  # ignore all files in any directory named build
+  build/
+
+  # ignore doc/notes.txt, but not doc/server/arch.txt
+  doc/*.txt
+
+  # ignore all .pdf files in the doc/ directory and any of its subdirectories
+  doc/**/*.pdf
+  ```
 
 
 ## Branching
