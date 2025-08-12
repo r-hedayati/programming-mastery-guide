@@ -1,46 +1,186 @@
-|                                                                  **Command**                                                                  	|                                                                                                                                                                                                                                             **Description**                                                                                                                                                                                                                                             	|
-|:---------------------------------------------------------------------------------------------------------------------------------------------:	|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:	|
-| command name -options < input >                                                                                                               	| command structure                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       	|
-| man <command name><br><><br>[]                                                                                                                	| command manual<br>anything in <> is mandatory<br>anything in [] is optional                                                                                                                                                                                                                                                                                                                                                                                                                             	|
-| cal<br>cal < date >                                                                                                                             	| view calendar<br>view calendar at <date>                                                                                                                                                                                                                                                                                                                                                                                                                                                                	|
-| date                                                                                                                                          	| showing date                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            	|
-| pwd                                                                                                                                           	| print working directory                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 	|
-| which <package name><br>echo $PATH                                                                                                            	| which package (bin) is using<br>view all of the bin files (view shell path)                                                                                                                                                                                                                                                                                                                                                                                                                             	|
-| cd <br>cd . <br>cd .. <br>cd /                                                                                                                	| change directory - go to [directory name]<br>current directory<br>parent folder/previous folder <br>absolute path - base directory                                                                                                                                                                                                                                                                                                                                                                      	|
-| ls <br>ls -F<br>ls -l<br>ls -a                                                                                                                	| list of files/directories in a directory <br>directories end with '/' at the end<br>long format<br>all files including hidden ones (start with '.')                                                                                                                                                                                                                                                                                                                                                     	|
-| file <file name>                                                                                                                              	| specifies the type of file                                                                                                                                                                                                                                                                                                                                                                                                                                                                              	|
-| touch <file name><br>touch {file,image}_{1,2,3}_{.txt,.png}                                                                                   	| create new file<br>file 1 to 3.txt and .png and image 1 to 3.png .txt                                                                                                                                                                                                                                                                                                                                                                                                                                   	|
-| mkdir <directory name>                                                                                                                        	| create a directory                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      	|
-| echo 'desirable string' > < text file name >                                                                                                    	| create a text file with desired text                                                                                                                                                                                                                                                                                                                                                                                                                                                                    	|
-| history<br>! <number>                                                                                                                         	| view history of commands<br>rerun the command number <number>                                                                                                                                                                                                                                                                                                                                                                                                                                           	|
-| chmod <three digit number> <file/directory name><br>700<br>-<br>d<br>l                                                                        	| change the file permission<br>(rwxrwxrwx) - user/group/other - 111111111 <br>regular file<br>directory <br>symbolic link                                                                                                                                                                                                                                                                                                                                                                                	|
-| rm <file name><br>rm -r <directory name><br>rm -i <file name><br>rmdir <directory name>                                                       	| delete file(s)<br>delete directory<br>ask before delete<br>only delete empty directory                                                                                                                                                                                                                                                                                                                                                                                                                  	|
-| cp <current path> <new path>                                                                                                                  	| copy files/folders                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      	|
-| mv <current path> <new path><br>mv <current file name> <new file name><br>mv -r <current> <new>                                               	| move files/folders<br>rename file name<br>move/rename directories                                                                                                                                                                                                                                                                                                                                                                                                                                       	|
-| nano <text file name>                                                                                                                         	| open nano editor                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        	|
-| cat <text file name><br>cat -n <file name><br>cat <file name> <file name>                                                                     	| view the contents of a file<br>show line numbers<br>concatenate two or more files to display them                                                                                                                                                                                                                                                                                                                                                                                                       	|
-| rev <text file name>                                                                                                                          	| view reverse of a file (reverse of cat command)                                                                                                                                                                                                                                                                                                                                                                                                                                                         	|
-| more <text file name><br>more -5 <file name><br>ls -l \| more                                                                                 	| view a file as a page (good for large files)<br>view only 5 lines of the file<br>list all files in long format and view it                                                                                                                                                                                                                                                                                                                                                                              	|
-| less <text file name>                                                                                                                         	| view a file (good for large files)                                                                                                                                                                                                                                                                                                                                                                                                                                                                      	|
-| head <text file name><br>head -n 5 <file name><br>head -n -5 <file name>                                                                      	| print the first part of a file (10 lines)<br>print the first 5 lines of a file<br>print the last 5 lines of a file                                                                                                                                                                                                                                                                                                                                                                                      	|
-| tail <text file name><br>tail -n 5 <file name><br>head -n 7 <file name> \| tail -n 3                                                          	| print the last part of a file<br>print the last 5 lines of a file<br>print lines 5 6 7                                                                                                                                                                                                                                                                                                                                                                                                                  	|
-| sort <file name><br>sort -r <file name><br>sort -n <file name><br>sort -u <file name><br>ls -l \| sort -k 2                                   	| sort file alphabetically<br>sort file alphabetically in reverse<br>sort file numerically<br>sort and get unique results only<br>list all files in tabular and sort the second col                                                                                                                                                                                                                                                                                                                       	|
-| find <starting directory> <options> <search term><br>more options in manual                                                                   	| search a file through directories                                                                                                                                                                                                                                                                                                                                                                                                                                                                       	|
-| xargs<br>date \| xargs echo<br>ls \| xargs rm                                                                                                 	| using in piping for commands that get command argument <br>the output will be the date<br>the outputs of ls command will be deleted                                                                                                                                                                                                                                                                                                                                                                     	|
-| grep '<expression>' <filename><br>grep '<expression>' <filename> <filename><br>grep <br>-r/-R grep -r "hello" .<br>-i<br>-c<br>-v<br>-n<br>-w 	| globally search for a regular expression and print matching lines<br>search for a file in a directory or an expression in a file<br>great tools for piping<br>directory recursive find: searching for string hello on all files in a directory<br>case insensitive<br>count number of lines where the word is matched<br>inverted match - matches only those lines that do not contain the given string<br>precede each line of output with the number of the line in the text file<br>search word only 	|
-| alias shortName="your custom command"<br>alias ll = "ls - l"<br>alias ll = "ls -l" --> in bash file                                           	| creating a custom command - it can be made permanently<br>temporary ll command is created<br>permanently ll command is created                                                                                                                                                                                                                                                                                                                                                                          	|
-| tar cfv <filename.tar> <file.txt> <file.py><br>tar xvf archive.tar                                                                            	| archive: combine or store multiple files (same or different sizes)<br>extract tar archive                                                                                                                                                                                                                                                                                                                                                                                                               	|
-| zip <filename.zip> <file.txt> <file.py><br>unzip <filename.zip>                                                                               	| compressing the file<br>uncompressing the file                                                                                                                                                                                                                                                                                                                                                                                                                                                          	|
-     
+# 🐧 Linux Cheat Sheet Summary
 
+A comprehensive quick reference guide for essential Linux commands and operations.
 
-## Wildcars
+---
 
-| **command** 	|                                             **description**                                             	|
-|:-----------:	|:-------------------------------------------------------------------------------------------------------:	|
-|      *      	|                                  representing any number of characters                                  	|
-|      ?      	|                                    representing any single character                                    	|
-|      []     	|                            range of characters<br>for example, a to m: [a-m]                            	|
-|      {}     	|                                    matching with what items in there                                    	|
-|      \      	| escape character (protect a subsequent special character)<br>for example, \\ : searches for a backslash 	|
-|     [^]     	|          not in range of characters in []<br>for example, any character except file2: file[^2]          	|
+## 📋 Table of Contents
+- [🐧 Linux Cheat Sheet Summary](#-linux-cheat-sheet-summary)
+  - [📋 Table of Contents](#-table-of-contents)
+  - [Command Structure](#command-structure)
+  - [Basic System Commands](#basic-system-commands)
+  - [Navigation \& Directory Operations](#navigation--directory-operations)
+  - [File Operations](#file-operations)
+  - [File Viewing \& Editing](#file-viewing--editing)
+  - [Text Processing](#text-processing)
+  - [Search \& Find](#search--find)
+  - [Permissions \& Ownership](#permissions--ownership)
+  - [Archive \& Compression](#archive--compression)
+  - [Command Customization](#command-customization)
+  - [Wildcards](#wildcards)
+
+---
+
+## Command Structure
+
+| **Command** | **Description** |
+|-------------|-----------------|
+| `command name -options <input>` | Basic command structure |
+| `man <command name>` | Command manual |
+| `<>` | Mandatory parameter |
+| `[]` | Optional parameter |
+
+---
+
+## Basic System Commands
+
+| **Command** | **Description** |
+|-------------|-----------------|
+| `cal` | View calendar |
+| `cal <date>` | View calendar at specific date |
+| `date` | Show current date and time |
+| `pwd` | Print working directory |
+| `which <package name>` | Show which package/binary is being used |
+| `echo $PATH` | View all binary file paths (shell path) |
+| `history` | View command history |
+| `!<number>` | Rerun command number from history |
+
+---
+
+## Navigation & Directory Operations
+
+| **Command** | **Description** |
+|-------------|-----------------|
+| `cd` | Change to home directory |
+| `cd .` | Stay in current directory |
+| `cd ..` | Go to parent directory |
+| `cd /` | Go to root directory (absolute path) |
+| `ls` | List files and directories |
+| `ls -F` | List with file type indicators (`/` for directories) |
+| `ls -l` | List in long format (detailed) |
+| `ls -a` | List all files including hidden ones (starting with `.`) |
+
+---
+
+## File Operations
+
+| **Command** | **Description** |
+|-------------|-----------------|
+| `file <filename>` | Identify file type |
+| `touch <filename>` | Create new empty file |
+| `touch {file,image}_{1,2,3}_{.txt,.png}` | Create multiple files with patterns |
+| `mkdir <directory>` | Create new directory |
+| `echo 'text' > <filename>` | Create text file with content |
+| `rm <filename>` | Delete file |
+| `rm -r <directory>` | Delete directory recursively |
+| `rm -i <filename>` | Delete with confirmation prompt |
+| `rmdir <directory>` | Delete empty directory only |
+| `cp <source> <destination>` | Copy files/folders |
+| `mv <source> <destination>` | Move files/folders |
+| `mv <oldname> <newname>` | Rename file |
+| `mv -r <source> <destination>` | Move/rename directories |
+
+---
+
+## File Viewing & Editing
+
+| **Command** | **Description** |
+|-------------|-----------------|
+| `nano <filename>` | Open file in nano text editor |
+| `cat <filename>` | Display file contents |
+| `cat -n <filename>` | Display file with line numbers |
+| `cat <file1> <file2>` | Concatenate and display multiple files |
+| `rev <filename>` | Display file contents in reverse |
+| `more <filename>` | View file page by page (good for large files) |
+| `more -5 <filename>` | Display only first 5 lines |
+| `ls -l \| more` | Pipe command output to more |
+| `less <filename>` | View file with navigation (better than more) |
+| `head <filename>` | Display first 10 lines of file |
+| `head -n 5 <filename>` | Display first 5 lines |
+| `head -n -5 <filename>` | Display all except last 5 lines |
+| `tail <filename>` | Display last 10 lines of file |
+| `tail -n 5 <filename>` | Display last 5 lines |
+| `head -n 7 <file> \| tail -n 3` | Display lines 5, 6, and 7 |
+
+---
+
+## Text Processing
+
+| **Command** | **Description** |
+|-------------|-----------------|
+| `sort <filename>` | Sort file contents alphabetically |
+| `sort -r <filename>` | Sort in reverse order |
+| `sort -n <filename>` | Sort numerically |
+| `sort -u <filename>` | Sort and remove duplicates |
+| `ls -l \| sort -k 2` | Sort ls output by second column |
+| `xargs` | Convert input to command arguments |
+| `date \| xargs echo` | Use date output as echo argument |
+| `ls \| xargs rm` | Remove files listed by ls |
+
+---
+
+## Search & Find
+
+| **Command** | **Description** |
+|-------------|-----------------|
+| `find <directory> <options> <term>` | Search for files in directories |
+| `grep '<pattern>' <filename>` | Search for pattern in file |
+| `grep '<pattern>' <file1> <file2>` | Search in multiple files |
+| `grep -r "hello" .` | Recursive search in current directory |
+| `grep -i <pattern> <file>` | Case-insensitive search |
+| `grep -c <pattern> <file>` | Count matching lines |
+| `grep -v <pattern> <file>` | Invert match (non-matching lines) |
+| `grep -n <pattern> <file>` | Show line numbers |
+| `grep -w <pattern> <file>` | Match whole words only |
+
+---
+
+## Permissions & Ownership
+
+| **Command** | **Description** |
+|-------------|-----------------|
+| `chmod <permissions> <file>` | Change file permissions |
+| `chmod 700 <file>` | Set permissions to rwx------ |
+| **Permission Types:** | |
+| `-` | Regular file |
+| `d` | Directory |
+| `l` | Symbolic link |
+| **Permission Format:** | `rwxrwxrwx` (user/group/other) |
+
+---
+
+## Archive & Compression
+
+| **Command** | **Description** |
+|-------------|-----------------|
+| `tar cfv <archive.tar> <files>` | Create tar archive |
+| `tar xvf <archive.tar>` | Extract tar archive |
+| `zip <archive.zip> <files>` | Create zip archive |
+| `unzip <archive.zip>` | Extract zip archive |
+
+---
+
+## Command Customization
+
+| **Command** | **Description** |
+|-------------|-----------------|
+| `alias <name>="<command>"` | Create temporary command alias |
+| `alias ll="ls -l"` | Create temporary `ll` alias |
+| Add to `.bashrc` or `.zshrc` | Make alias permanent |
+
+---
+
+## Wildcards
+
+| **Symbol** | **Description** | **Example** |
+|------------|-----------------|-------------|
+| `*` | Any number of characters | `*.txt` (all .txt files) |
+| `?` | Any single character | `file?.txt` (file1.txt, fileA.txt) |
+| `[]` | Range of characters | `file[1-3].txt` (file1, file2, file3) |
+| `{}` | Match specific items | `file{1,3,5}.txt` |
+| `\` | Escape character | `\*` (literal asterisk) |
+| `[^]` | Not in range | `file[^2].txt` (any except file2.txt) |
+
+---
+
+> 💡 **Tip**: Use `man <command>` to get detailed information about any command and its options.

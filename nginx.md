@@ -442,3 +442,112 @@ server {
   - `Upgrade` and `Connection`: specifies the headers to upgrade the connection to WebSocket.
 
 ### Load Balancing
+
+# TC
+TC is a traffic control command that allows you to configure network traffic shaping, scheduling, and policing. It is used to control the flow of network traffic on a Linux system. TC is part of the `iproute2` package and is included in most Linux distributions.
+
+qdisc (queuing discipline) is a term used in TC to refer to the different algorithms used to control network traffic. qdiscs are implemented as modules, which are inserted in the kernel at the run time. It can drop, forward, queue, delay or re-order packets at a network interface. qdiscs are of two types: classful and classless. Classful qdiscs are used to classify packets into different classes based on their characteristics, while classless qdiscs treat all packets the same way.
+
+- There are different queuing disciplines that can be used to control network traffic such as Token Bucket Filter (`tbf`), Network Emulator (`netem`), and Stochastic Fairness Queuing (`sfq`).
+
+A class is a sub-qdisc that is attached to a parent qdisc. Classes are used to classify packets based on their characteristics such as source IP address, destination IP address, port number, or protocol. Classes can have different qdiscs attached to them to apply different traffic control settings.
+
+When a qdisc with classes receives a packet, it needs to decide which class to send the packet to. This decision is made based on the packet's characteristics and the classification rules defined in the qdisc. The qdisc can use filters to classify packets based on their characteristics.
+
+## Installation
+To install TC on Ubuntu, run the following command:
+
+```bash
+sudo apt update
+sudo apt install iproute2
+```
+
+To install TC on CentOS, run the following command:
+
+```bash
+sudo yum install iproute
+```
+
+## Usage
+
+TC is used to configure network traffic control settings such as bandwidth limits, delay, packet loss, and packet reordering. The basic syntax of the TC command is as follows:
+
+```bash
+tc qdisc add dev <interface> root <qdisc_type> <qdisc_options>
+```
+
+- `tc`: the TC command.
+- `qdisc`: the queuing discipline (`qdisc`) command. 
+  - There are different queuing disciplines that can be used to control network traffic such as Token Bucket Filter (`tbf`), Network Emulator (`netem`), and Stochastic Fairness Queuing (`sfq`).
+- `add`: adds a new `qdisc` to the network interface. 
+  - Other options include `change` to modify an existing `qdisc` and `del` to delete a `qdisc`.
+- `dev <interface>`: specifies the network interface to apply the `qdisc` to.
+  - It can be an Ethernet interface such as `eth0` or a loopback interface such as `lo`.
+- `root`: specifies the root `qdisc`.
+  - The root `qdisc` is the top-level `qdisc` that controls the flow of traffic on the network interface.
+  - The root `qdisc` is required for all `qdisc` configurations.
+  - The root `qdisc` can be used to add bandwidth limits, delay, packet loss, and packet reordering to the network interface.
+  - The root `qdisc` can have multiple child `qdiscs` that apply different traffic control settings.
+- `<qdisc_type>`: specifies the type of `qdisc` to add.
+- `<qdisc_options>`: specifies the options for the `qdisc`.
+  - The options depend on the `qdisc` type and can include parameters such as bandwidth rate, burst size, latency, delay, packet loss, and packet reordering.
+
+Example:
+
+```bash
+tc qdisc add dev eth0 root tbf rate 1mbit burst 32kbit latency 50ms
+```
+
+This command adds a Token Bucket Filter (`tbf`) `qdisc` to the `eth0` network interface with a bandwidth rate of 1 Mbit/s, a burst size of 32 Kbit, and a latency of 50 ms.
+
+To view the current `qdisc` settings for a network interface, you can use the following command:
+
+```bash
+tc qdisc show dev <interface>
+```
+
+```bash
+tc -s qdisc show dev <interface>
+```
+
+To delete a `qdisc` from a network interface, you can use the following command:
+
+```bash
+tc qdisc del dev <interface> root
+```
+
+To add a bandwidth limit to a network interface, you can use the following command:
+
+```bash
+tc qdisc add dev <interface> root tbf rate <rate> burst <burst> latency <latency>
+```
+
+- `tbf`: Token Bucket Filter (TBF) qdisc type.
+- `rate <rate>`: specifies the bandwidth rate in bits per second (bps).
+- `burst <burst>`: specifies the burst size in bytes.
+- `latency <latency>`: specifies the latency in milliseconds (ms).
+
+To add a delay to a network interface, you can use the following command:
+
+```bash
+tc qdisc add dev <interface> root netem delay <delay>
+```
+
+- `netem`: Network Emulator (Netem) qdisc type.
+- `delay <delay>`: specifies the delay in milliseconds (ms).
+
+To add packet loss to a network interface, you can use the following command:
+
+```bash
+tc qdisc add dev <interface> root netem loss <loss>
+```
+
+- `loss <loss>`: specifies the packet loss percentage.
+
+To add packet reordering to a network interface, you can use the following command:
+
+```bash
+tc qdisc add dev <interface> root netem delay <delay> reorder <reorder>
+```
+
+- `reorder <reorder>`: specifies the packet reordering percentage.
